@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eric Fabiano - Junior Full-Stack Developer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="light-theme">
+
+    <nav class="nav">
+        <div class="container nav-flex">
+            <div class="logo">ERIC-FABIANO.<span>DEV</span></div>
+            <div class="nav-right">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark/light theme">
+                    <span id="theme-icon" aria-hidden="true">🌙</span>
+                </button>
+                <div class="lang-switch" role="group" aria-label="Language selection">
+                    <button id="en-btn" class="active" aria-label="English">EN</button>
+                    <button id="pt-btn" aria-label="Português">PT-BR</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <p class="intro-label" data-i18n="intro-label">Junior Full-Stack Developer</p>
+            <h1 data-i18n="hero-title">Crafting logic with Python, building the web with heart.</h1>
+            <div class="stack-pills" role="tablist" aria-label="Filter projects by technology">
+                <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All</button>
+                <button class="filter-pill" data-filter="Python" role="tab" aria-selected="false">Python</button> 
+                <button class="filter-pill" data-filter="MySQL" role="tab" aria-selected="false">MySQL</button> 
+                <button class="filter-pill" data-filter="MongoDB" role="tab" aria-selected="false">MongoDB</button> 
+                <button class="filter-pill" data-filter="JavaScript" role="tab" aria-selected="false">JavaScript</button>  
+                <button class="filter-pill" data-filter="HTML" role="tab" aria-selected="false">HTML e CSS</button>
+            </div>
+        </header>
+
+        <!-- Projects Section -->
+        <section class="projects">
+            <h2 class="section-title" data-i18n="work-label">Selected Projects</h2>
+            <div class="project-grid">
+                
+                <!-- Project Card 1 -->
+                <div class="project-card" 
+                     role="button" 
+                     tabindex="0"
+                     aria-haspopup="dialog"
+                     data-stack="Python MySQL" 
+                     data-full-img="https://via.placeholder.com/600x350" 
+                     data-full-desc="p1-full-desc"
+                     data-repo="https://github.com/Mister-EF">
+                    <div class="card-top">
+                        <span class="year">2024</span>
+                        <h3 data-i18n="p1-title">Data Architect</h3>
+                        <p data-i18n="p1-desc">Complex MySQL relational structures optimized for speed.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>Python / SQL</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card" 
+                     role="button" 
+                     tabindex="0"
+                     aria-haspopup="dialog"
+                     data-stack="JavaScript MongoDB"
+                     data-full-img="https://via.placeholder.com/600x350"
+                     data-full-desc="p2-full-desc"
+                     data-repo="https://github.com/Mister-EF">
+                    <div class="card-top">
+                        <span class="year">2024</span>
+                        <h3 data-i18n="p2-title">NoSQL Manager</h3>
+                        <p data-i18n="p2-desc">A MongoDB-driven dashboard for dynamic content scaling.</p>
+                    </div>
+                    <div class="card-footer">
+                        <span>JS / MongoDB</span>
+                        <span class="arrow" aria-hidden="true">→</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="footer-divider"></div>
+            <div class="footer-content">
+                <div class="footer-text">
+                    <h2 data-i18n="footer-head">Let's build something together!</h2>
+                    <p data-i18n="footer-sub">Currently looking for my first big opportunity in the industry.</p>
+                    <a href="mailto:ichgkursk1@gmail.com" class="email-link">ichgkursk1@gmail.com</a>
+                </div>
+                
+                <div class="contact-links">
+                    <a href="https://github.com/Mister-EF" class="contact-image" aria-label="Visit my GitHub"><img src="https://cdn-icons-png.flaticon.com/512/889/889192.png" alt="" aria-hidden="true"></a>
+                    <a href="https://www.linkedin.com/in/eric-fabiano" class="contact-image" aria-label="Visit my LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/2496/2496097.png" alt="" aria-hidden="true"></a>
+                </div>
+
+                <div class="qr-section">
+                    <div class="qr-box">
+                        <div class="qr-placeholder" aria-hidden="true">QR CODE</div>
+                    </div>
+                    <p class="qr-label" data-i18n="qr-text">Scan for contact</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Project Expansion Modal -->
+    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-content">
+            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <img id="modal-img" src="" alt="Project Preview">
+            <h2 id="modal-title"></h2>
+            <p id="modal-desc" style="margin: 1.5rem 0; line-height: 1.6;"></p>
+            <a href="#" id="modal-link" target="_blank" class="view-repo-btn" data-i18n="view-repo">View Repository</a>
+        </div>
+    </div>
+
+    <!-- Floating Button -->
+    <a href="/portfolio/assets/Eric fabiano Pelegrini Freitas.pdf" target="_blank" class="floating-btn">
+        <span class="pulse"></span>
+        <span data-i18n="help-btn">Want to help me grow?</span>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
