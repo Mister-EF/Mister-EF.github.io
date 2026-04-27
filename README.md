@@ -1,7 +1,6 @@
 # ERIC-FABIANO.DEV — Portfolio
 
 The personal portfolio of **Eric Fabiano** — a Junior Full-Stack Developer crafting logic with Python and building the web with purpose. A curated showcase of 10 projects spanning frontend, backend, databases, and everything in between.
-
 ---
 
 ## Tech Stack Showcased
