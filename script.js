@@ -1,11 +1,17 @@
 const translations = {
     'en': {
+        'about-title': 'About Me',
+        'about-description': 'Hello! I\'m Eric Fabiano. I am a passionate Junior Full-Stack Developer focused on Python and modern web technologies. I love solving complex problems and turning logic into beautiful, functional interfaces.',
+        'recent-title': 'Recently Posted',
+        'cert-title': 'Certificates',
+        'view-cert': 'View',
+        'skills-title': 'Skills',
+        'hard-skills': 'Hard Skills',
+        'soft-skills': 'Soft Skills',
+        's1': 'Problem Solving', 's2': 'Adaptability', 's3': 'Teamwork', 's4': 'Communication',
         'intro-label': 'Junior Full-Stack Developer',
         'hero-title': 'Crafting logic with Python, building the web with heart.',
-        'work-label': 'Selected Projects',
-        'p1-title': 'Data Architect',
-        'p1-desc': 'Complex MySQL relational structures optimized for speed.',
-        'p1-full-desc': 'Deep dive into database normalization and architecture. Showcase of scalable SQL structures.',
+        'work-label': 'Current Projects',
         'p2-title': 'NoSQL Manager',
         'p2-desc': 'A MongoDB-driven dashboard for dynamic content scaling.',
         'p2-full-desc': 'Comprehensive dashboard built with JS, HTML-CSS for the front-end and MongoDB + Python in the back-end to manage non-relational data.',
@@ -39,19 +45,25 @@ const translations = {
         'p12-title' : 'Task Management Kanban Board',
         'p12-desc' : 'A productivity board with draggable tasks to manage workflow stages.',
         'p12-full-desc' : 'A comprehensive full-stack application featuring HTML/CSS layout, JavaScript Drag-and-Drop API for task movement, and a Python-based database to store task states.',
-        'help-btn': 'Want to help me grow?',
-        'footer-head': "Let's build something together!",
-        'footer-sub': 'Currently looking for my first big opportunity.',
+        'help-btn': 'Help me grow?',
+        'footer-head': "Let's build together!",
+        'footer-sub': 'Looking for my first opportunity.',
         'qr-text': 'Scan for contact',
         'view-repo': 'View Repository'
     },
     'pt': {
+        'about-title': 'Sobre Mim',
+        'about-description': 'Olá! Sou Eric Fabiano, um desenvolvedor Junior Full-Stack focado em Python e tecnologias modernas. Amo resolver problemas e transformar lógica em interfaces funcionais.',
+        'recent-title': 'Postado Recentemente',
+        'cert-title': 'Certificados',
+        'view-cert': 'Ver',
+        'skills-title': 'Habilidades',
+        'hard-skills': 'Técnicas',
+        'soft-skills': 'Interpessoais',
+        's1': 'Resolução de Problemas', 's2': 'Adaptabilidade', 's3': 'Trabalho em Equipe', 's4': 'Comunicação',
         'intro-label': 'Desenvolvedor Full-Stack Júnior',
         'hero-title': 'Criando lógica com Python, construindo a web com propósito.',
-        'work-label': 'Projetos Selecionados',
-        'p1-title': 'Arquiteto de Dados',
-        'p1-desc': 'Estruturas relacionais MySQL complexas otimizadas para velocidade.',
-        'p1-full-desc': 'Uma imersão em normalização e arquitetura de banco de dados SQL.',
+        'work-label': 'Projetos atuais',
         'p2-title': 'Gestor NoSQL',
         'p2-desc': 'Um dashboard MongoDB para escalonamento de conteúdo dinâmico.',
         'p2-full-desc': 'Dashboard construído com JavaScript, HTML-CSS no front-end e MongoDB + Python (back-end) para dados não relacionais.',
@@ -85,9 +97,9 @@ const translations = {
         'p12-title' : 'Quadro Kanban de Gerenciamento de Tarefas',
         'p12-desc' : 'Um quadro de produtividade com tarefas arrastáveis para gerenciar etapas de fluxo de trabalho.',
         'p12-full-desc' : 'Uma aplicação full-stack abrangente com layout em HTML/CSS, API de Drag-and-Drop do JavaScript para movimentação de tarefas e um banco de dados em Python para salvar os estados das tarefas.',
-        'help-btn': 'Quer me ajudar a crescer?',
-        'footer-head': 'Vamos construir algo juntos!',
-        'footer-sub': 'Atualmente em busca da minha primeira oportunidade.',
+        'help-btn': 'Me ajude a crescer?',
+        'footer-head': 'Vamos construir juntos!',
+        'footer-sub': 'Buscando minha primeira oportunidade.',
         'qr-text': 'Escaneie para contato',
         'view-repo': 'Ver Repositório'
     }
@@ -96,7 +108,6 @@ const translations = {
 // --- Theme Management ---
 const themeToggle = document.getElementById('theme-toggle');
 const themeIcon = document.getElementById('theme-icon');
-
 themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('dark-theme');
     const isDark = document.body.classList.contains('dark-theme');
@@ -111,80 +122,131 @@ function setLanguage(lang) {
         if (translations[lang][key]) el.textContent = translations[lang][key];
     });
     document.querySelectorAll('.lang-switch button').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(`${lang}-btn`).classList.add('active');
+    document.getElementById(`${lang === 'en' ? 'en' : 'pt'}-btn`).classList.add('active');
     localStorage.setItem('portfolio-lang', lang);
 }
-
 document.getElementById('en-btn').addEventListener('click', () => setLanguage('en'));
 document.getElementById('pt-btn').addEventListener('click', () => setLanguage('pt'));
+
+// --- Section Toggles ---
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const section = btn.closest('.section-block');
+        section.classList.toggle('collapsed');
+        btn.textContent = section.classList.contains('collapsed') ? '+' : '−';
+    });
+});
+
+// --- Slideshow Logic ---
+const track = document.getElementById('recent-track');
+const dots = document.querySelectorAll('.slide-dot');
+let currentSlide = 0;
+
+function updateSlideshow(index) {
+    track.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach(d => d.classList.remove('active'));
+    dots[index].classList.add('active');
+    currentSlide = index;
+}
+
+dots.forEach(dot => {
+    dot.addEventListener('click', () => updateSlideshow(parseInt(dot.dataset.index)));
+});
+
+setInterval(() => {
+    let next = (currentSlide + 1) % dots.length;
+    updateSlideshow(next);
+}, 5000);
 
 // --- Filtering Logic ---
 const filterPills = document.querySelectorAll('.filter-pill');
 const projectCards = document.querySelectorAll('.project-card');
-
 filterPills.forEach(pill => {
     pill.addEventListener('click', () => {
-        filterPills.forEach(p => {
-            p.classList.remove('active');
-            p.setAttribute('aria-selected', 'false');
-        });
+        filterPills.forEach(p => p.classList.remove('active'));
         pill.classList.add('active');
-        pill.setAttribute('aria-selected', 'true');
-
         const filter = pill.getAttribute('data-filter');
         projectCards.forEach(card => {
             const stacks = card.getAttribute('data-stack');
-            if (filter === 'all' || stacks.includes(filter)) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
+            if (filter === 'all' || stacks.includes(filter)) card.classList.remove('hidden');
+            else card.classList.add('hidden');
         });
     });
 });
 
-// --- Modal & a11y Focus Management ---
+// --- Modal Logic ---
 const modal = document.getElementById('project-modal');
 const closeModalBtn = document.querySelector('.close-modal');
-let lastFocusedElement;
-
 function openModal(card) {
-    lastFocusedElement = document.activeElement;
     const lang = localStorage.getItem('portfolio-lang') || 'en';
-    
     const titleKey = card.querySelector('[data-i18n]').getAttribute('data-i18n');
     const descKey = card.getAttribute('data-full-desc');
     const imgUrl = card.getAttribute('data-full-img');
     const repoUrl = card.getAttribute('data-repo');
-
     document.getElementById('modal-title').textContent = translations[lang][titleKey];
     document.getElementById('modal-desc').textContent = translations[lang][descKey];
     document.getElementById('modal-img').src = imgUrl;
     document.getElementById('modal-link').href = repoUrl;
-
     modal.style.display = 'flex';
-    closeModalBtn.focus();
+}
+projectCards.forEach(card => card.addEventListener('click', () => openModal(card)));
+closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
+window.addEventListener('click', (e) => { if (e.target == modal) modal.style.display = 'none'; });
+
+const canvas = document.getElementById('matrix-canvas');
+const ctx = canvas.getContext('2d');
+
+let width, height, columns;
+const fontSize = 16;
+let drops = [];
+
+const chars = "ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1234567890ABCDEF".split("");
+
+function initMatrix() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+    
+    columns = Math.floor(width / fontSize);
+    drops = [];
+    for (let i = 0; i < columns; i++) {
+        drops[i] = Math.random() * -100;
+    }
 }
 
-function closeModal() {
-    modal.style.display = 'none';
-    if (lastFocusedElement) lastFocusedElement.focus();
+function drawMatrix() {
+    // Semi-transparent background to create the trailing effect
+    // We use the theme's background color with low opacity
+    const isDark = document.body.classList.contains('dark-theme');
+    ctx.fillStyle = isDark ? 'rgba(10, 10, 12, 0.1)' : 'rgba(245, 245, 247, 0.1)';
+    ctx.fillRect(0, 0, width, height);
+
+    // Set the character color based on theme accent
+    ctx.fillStyle = isDark ? '#ff4d4d' : '#0066cc';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < drops.length; i++) {
+        const text = chars[Math.floor(Math.random() * chars.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+        // Reset drop to top randomly after it crosses the screen
+        if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+        }
+        drops[i]++;
+    }
 }
 
-projectCards.forEach(card => {
-    card.addEventListener('click', () => openModal(card));
-    card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            openModal(card);
+document.querySelectorAll('.slide-link').forEach(link => {
+    link.addEventListener('click', (e) => {
+        const projectsSection = document.getElementById('projects-section');
+        
+        if (projectsSection.classList.contains('collapsed')) {
+            projectsSection.classList.remove('collapsed');
+            
+            const btn = projectsSection.querySelector('.toggle-btn');
+            if (btn) btn.textContent = '−';
         }
     });
-});
-
-closeModalBtn.addEventListener('click', closeModal);
-window.addEventListener('click', (e) => { if (e.target == modal) closeModal(); });
-window.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
 });
 
 // --- Initialization ---
@@ -197,3 +259,7 @@ window.addEventListener('DOMContentLoaded', () => {
         themeIcon.textContent = '☀️';
     }
 });
+
+window.addEventListener('resize', initMatrix);
+initMatrix();
+setInterval(drawMatrix, 50);

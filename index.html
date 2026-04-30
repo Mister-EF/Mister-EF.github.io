@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="light-theme">
-
+    <canvas id="matrix-canvas"></canvas>
     <nav class="nav">
         <div class="container nav-flex">
             <div class="logo">ERIC-FABIANO.<span>DEV</span></div>
@@ -16,316 +16,238 @@
                 <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark/light theme">
                     <span id="theme-icon" aria-hidden="true">🌙</span>
                 </button>
-                <div class="lang-switch" role="group" aria-label="Language selection">
-                    <button id="en-btn" class="active" aria-label="English">EN</button>
-                    <button id="pt-btn" aria-label="Português">PT-BR</button>
+                <div class="lang-switch">
+                    <button id="en-btn" class="active">EN</button>
+                    <button id="pt-btn">PT-BR</button>
                 </div>
             </div>
         </div>
     </nav>
 
     <main class="container">
-        <!-- Hero Section -->
+        
+        <!-- About Me Section (Always Visible) -->
+        <section class="about-section" id="about">
+            <div class="section-header">
+                <h2 data-i18n="about-title">About Me</h2>
+            </div>
+            <div class="section-content about-grid">
+                <div class="about-text">
+                    <p data-i18n="about-description">Hello! I'm Eric Fabiano. I am a passionate Junior Full-Stack Developer focused on Python and modern web technologies. I love solving complex problems and turning logic into beautiful, functional interfaces.</p>
+                </div>
+                <div class="about-visual">
+                    <div class="tech-stack-display">
+                        <div class="tech-row marquee">
+                            <img alt="Python" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
+                            <img alt="MySQL" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg">
+                            <img alt="MongoDB" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
+                            <img alt="JavaScript" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-plain.svg">
+                        </div>
+                        <div class="tech-row marquee-rev">
+                            <img alt="HTML" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+                            <img alt="CSS" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+                            <img alt="Flask" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flask/flask-original.svg">
+                            <img alt="Node.js" height="40" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+
+        <!-- Hero Section (Carousel) -->
         <header class="hero">
-            <p class="intro-label" data-i18n="intro-label">Junior Full-Stack Developer</p>
-            <h1 data-i18n="hero-title">Crafting logic with Python, building the web with heart.</h1>
-            <div class="stack-pills" role="tablist" aria-label="Filter projects by technology">
-                <button class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All</button>
-                <button class="filter-pill" data-filter="Python" role="tab" aria-selected="false">Python</button> 
-                <button class="filter-pill" data-filter="MySQL" role="tab" aria-selected="false">MySQL</button> 
-                <button class="filter-pill" data-filter="MongoDB" role="tab" aria-selected="false">MongoDB</button> 
-                <button class="filter-pill" data-filter="JavaScript" role="tab" aria-selected="false">JavaScript</button>  
-                <button class="filter-pill" data-filter="HTML" role="tab" aria-selected="false">HTML-CSS</button>
+            <div class="recently-posted">
+                <h3 class="carousel-label" data-i18n="recent-title">Recently Posted</h3>
+                <div class="slideshow-wrapper">
+                    <div class="slideshow-track" id="recent-track">
+                        <div class="slide">
+                            <img src="assets/Kanban.png" alt="Kanban">
+                            <div class="slide-content">
+                                <h4 data-i18n="p12-title">Task Management Kanban Board</h4>
+                                <p data-i18n="p12-desc">A productivity board with draggable tasks to manage workflow stages.</p>
+                                <a href="#proj-12" class="slide-link"><h5>Acessar</h5></a>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/Clima.png" alt="Weather">
+                            <div class="slide-content">
+                                <h4 data-i18n="p11-title">Real-Time Weather Dashboard</h4>
+                                <p data-i18n="p11-desc">A dynamic weather app that provides live updates based on geographic data.</p>
+                                <a href="#proj-11" class="slide-link"><h5>Acessar</h5></a>
+                            </div>
+                        </div>
+                        <div class="slide">
+                            <img src="assets/MongoDB-Dashboard.png" alt="Dashboard MongoDB">
+                            <div class="slide-content">
+                                <h4 data-i18n="p2-title">NoSQL Dashboard</h4>
+                                <p data-i18n="p2-desc">MongoDB-driven dashboard for dynamic content scaling</p>
+                                <a href="#proj-2" class="slide-link"><h5>Acessar</h5></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slideshow-nav">
+                        <button class="slide-dot active" data-index="0"></button>
+                        <button class="slide-dot" data-index="1"></button>
+                        <button class="slide-dot" data-index="2"></button>
+                    </div>
+                </div>
             </div>
         </header>
 
-        <!-- Projects Section -->
-        <section class="projects">
-            <h2 class="section-title" data-i18n="work-label">Selected Projects</h2>
-            <div class="project-grid">
-                
-                <!-- Project Card 1 -->
-                <!-- <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="Python MySQL" 
-                     data-full-img="https://via.placeholder.com/600x350" 
-                     data-full-desc="p1-full-desc"
-                     data-repo="https://github.com/Mister-EF">
-                    <div class="card-top">
-                        <span class="year">2024</span>
-                        <h3 data-i18n="p1-title">Data Architect</h3>
-                        <p data-i18n="p1-desc">Complex MySQL relational structures optimized for speed.</p>
+        <!-- Certificates Section (Collapsible) -->
+        <section class="section-block collapsed" id="certificates">
+            <div class="section-header">
+                <h2 data-i18n="cert-title">Certificates</h2>
+                <button class="toggle-btn" aria-label="Toggle Section">+</button>
+            </div>
+            <div class="section-content cert-grid">
+                <div class="cert-card">
+                    <div class="cert-badge">🏆</div>
+                    <div class="cert-info">
+                        <h4 data-i18n="c1-name">Full-Stack Development</h4>
+                        <p>Alura / Harvard CS50</p>
+                        <span class="cert-date">2024</span>
                     </div>
-                    <div class="card-footer">
-                        <span>Python / SQL</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div> -->
+                    <a href="#" class="cert-view-btn" data-i18n="view-cert">View</a>
+                </div>
+            </div>
+            <div class="section-divider"></div>
+        </section>
 
-                <!-- Project Card 2 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="JavaScript MongoDB HTML-CSS Python"
-                     data-full-img="assets/MongoDB-Dashboard.png"
-                     data-full-desc="p2-full-desc"
-                     data-repo="https://github.com/Mister-EF/Dashboard-MongoDB.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p2-title">NoSQL Manager</h3>
-                        <p data-i18n="p2-desc">A MongoDB-driven dashboard for dynamic content scaling.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>JS / MongoDB / HTML-CSS / Python</span>
-                        <span class="arrow" aria-hidden="true">→</span>
+        <!-- Skills Section (Collapsible) -->
+        <section class="section-block collapsed" id="skills">
+            <div class="section-header">
+                <h2 data-i18n="skills-title">Skills</h2>
+                <button class="toggle-btn" aria-label="Toggle Section">+</button>
+            </div>
+            <div class="section-content skills-container">
+                <div class="skills-box">
+                    <h3 data-i18n="hard-skills">Hard Skills</h3>
+                    <div class="skills-tags">
+                        <span>Python</span><span>MySQL</span><span>MongoDB</span><span>Flask</span>
+                        <span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Git</span>
                     </div>
                 </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="JavaScript HTML-CSS"
-                     data-full-img="assets/Jogo mario.png"
-                     data-full-desc="p3-full-desc"
-                     data-repo="https://github.com/Mister-EF/Jogo-HTML-CSS-JS">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p3-title">Basic HTML-CSS-JavaScript game</h3>
-                        <p data-i18n="p3-desc">A simple Mario game in the same style as Flap Bird using the Front End's Holy Trinity.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>JS / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 4 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="JavaScript HTML-CSS"
-                     data-full-img="assets/Glassmorphism-Dashboard.png"
-                     data-full-desc="p4-full-desc"
-                     data-repo="https://github.com/Mister-EF/Interface-de-Dashboard-em-Glassmorphism.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p4-title">Glassmorphism Dashboard UI</h3>
-                        <p data-i18n="p4-desc">A high-end, modern dashboard component featuring the trendy "frosted glass" aesthetic.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>JS / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 5 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="JavaScript"
-                     data-full-img="assets/Bateria virtual.png"
-                     data-full-desc="p5-full-desc"
-                     data-repo="https://github.com/Mister-EF/Bateria-virtual.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p5-title">Virtual Drum Kit</h3>
-                        <p data-i18n="p5-desc">A musical interaction tool that turns your keyboard into a drum set.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>JavaScript</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 6 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="Python JavaScript"
-                     data-full-img="assets/Analizador senha.png"
-                     data-full-desc="p6-full-desc"
-                     data-repo="https://github.com/Mister-EF/Analisador-de-Seguran-a-de-Senhas.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p6-title">Password Security Analyzer</h3>
-                        <p data-i18n="p6-desc">A security tool that evaluates password strength and checks against known vulnerabilities.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Python / JavaScript</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 7 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="Python"
-                     data-full-img="assets/Organizador.png"
-                     data-full-desc="p7-full-desc"
-                     data-repo="https://github.com/Mister-EF/Organizador-de-Arquivos-Automatizado.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p7-title">Automated File Organizer</h3>
-                        <p data-i18n="p7-desc">A Python-based system utility to keep your local directories clean and organized.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Python</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 8 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="JavaScript HTML-CSS"
-                     data-full-img="assets/Rastreador interativo orçamento.png"
-                     data-full-desc="p8-full-desc"
-                     data-repo="https://github.com/Mister-EF/Rastreador-de-Or-amento-Interativo.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p8-title">Interactive Budget Tracker</h3>
-                        <p data-i18n="p8-desc">A personal finance tool for tracking income and expenses in real-time.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>JS / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 9 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="JavaScript HTML-CSS"
-                     data-full-img="assets/Timer Pomodoro.png"
-                     data-full-desc="p9-full-desc"
-                     data-repo="https://github.com/Mister-EF/Temporizador-de-Produtividade-Pomodoro.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p9-title">Pomodoro Productivity Timer</h3>
-                        <p data-i18n="p9-desc">A sleek focus timer designed to help users manage their work intervals effectively.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>JS / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 10 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="Python HTML-CSS"
-                     data-full-img="assets/Blog Markdown.png"
-                     data-full-desc="p10-full-desc"
-                     data-repo="https://github.com/Mister-EF/Blog-Pessoal-em-Markdown.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p10-title">Personal Markdown Blog</h3>
-                        <p data-i18n="p10-desc">A developer-centric blog engine that renders Markdown files into styled web pages.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Python / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 11 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="Python HTML-CSS"
-                     data-full-img="assets/Clima.png"
-                     data-full-desc="p11-full-desc"
-                     data-repo="https://github.com/Mister-EF/Dashboard-de-Clima-em-Tempo-Real.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p11-title">Real-Time Weather Dashboard</h3>
-                        <p data-i18n="p11-desc">A dynamic weather app that provides live updates based on geographic data.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Python / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
-                    </div>
-                </div>
-
-                <!-- Project Card 12 -->
-                <div class="project-card" 
-                     role="button" 
-                     tabindex="0"
-                     aria-haspopup="dialog"
-                     data-stack="Python HTML-CSS"
-                     data-full-img="assets/Kanban.png"
-                     data-full-desc="p12-full-desc"
-                     data-repo="https://github.com/Mister-EF/Quadro-Kanban-de-Gerenciamento-de-Tarefas.git">
-                    <div class="card-top">
-                        <span class="year">2026</span>
-                        <h3 data-i18n="p12-title">Task Management Kanban Board</h3>
-                        <p data-i18n="p12-desc">A productivity board with draggable tasks to manage workflow stages.</p>
-                    </div>
-                    <div class="card-footer">
-                        <span>Python / HTML-CSS</span>
-                        <span class="arrow" aria-hidden="true">→</span>
+                <div class="skills-box">
+                    <h3 data-i18n="soft-skills">Soft Skills</h3>
+                    <div class="skills-tags">
+                        <span data-i18n="s1">Problem Solving</span>
+                        <span data-i18n="s2">Adaptability</span>
+                        <span data-i18n="s3">Teamwork</span>
+                        <span data-i18n="s4">Communication</span>
                     </div>
                 </div>
             </div>
+            <div class="section-divider"></div>
         </section>
 
-        <!-- Footer Section -->
+        <!-- Projects Section (Collapsible) -->
+        <section class="section-block collapsed projects" id="projects-section">
+            <div class="section-header">
+                <h2 class="section-title" data-i18n="work-label">Selected Projects</h2>
+                <button class="toggle-btn" aria-label="Toggle Section">+</button>
+            </div>
+
+            <!-- THE CONTENT WRAPPER -->
+            <div class="section-content">
+                
+                <!-- Pills inside the collapse, but outside the grid -->
+                <div class="stack-pills" role="tablist">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="Python">Python</button> 
+                    <button class="filter-pill" data-filter="MySQL">MySQL</button> 
+                    <button class="filter-pill" data-filter="MongoDB">MongoDB</button> 
+                    <button class="filter-pill" data-filter="JavaScript">JavaScript</button>  
+                    <button class="filter-pill" data-filter="HTML">HTML-CSS</button>
+                </div>
+
+                <!-- Dedicated Grid div -->
+                <div class="project-grid">
+                    <div class="project-card" id="proj-2" data-stack="JavaScript MongoDB HTML-CSS Python" data-full-img="assets/MongoDB-Dashboard.png" data-full-desc="p2-full-desc" data-repo="https://github.com/Mister-EF/Dashboard-MongoDB.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p2-title">NoSQL Manager</h3><p data-i18n="p2-desc">A MongoDB-driven dashboard for dynamic content scaling.</p></div>
+                        <div class="card-footer"><span>JS/Mongo/Python</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="JavaScript HTML-CSS" data-full-img="assets/Jogo mario.png" data-full-desc="p3-full-desc" data-repo="https://github.com/Mister-EF/Jogo-HTML-CSS-JS">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p3-title">Mario Game</h3><p data-i18n="p3-desc">A simple Mario game in HTML-CSS-JS.</p></div>
+                        <div class="card-footer"><span>JS/HTML/CSS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="JavaScript HTML-CSS" data-full-img="assets/Glassmorphism-Dashboard.png" data-full-desc="p4-full-desc" data-repo="https://github.com/Mister-EF/Interface-de-Dashboard-em-Glassmorphism.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p4-title">Glassmorphism UI</h3><p data-i18n="p4-desc">Modern frosted glass dashboard component.</p></div>
+                        <div class="card-footer"><span>JS/CSS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="JavaScript" data-full-img="assets/Bateria virtual.png" data-full-desc="p5-full-desc" data-repo="https://github.com/Mister-EF/Bateria-virtual.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p5-title">Virtual Drum Kit</h3><p data-i18n="p5-desc">Turns keyboard into a drum set.</p></div>
+                        <div class="card-footer"><span>JavaScript</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="Python JavaScript" data-full-img="assets/Analizador senha.png" data-full-desc="p6-full-desc" data-repo="https://github.com/Mister-EF/Analisador-de-Seguran-a-de-Senhas.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p6-title">Security Analyzer</h3><p data-i18n="p6-desc">Evaluates password strength.</p></div>
+                        <div class="card-footer"><span>Python/JS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="Python" data-full-img="assets/Organizador.png" data-full-desc="p7-full-desc" data-repo="https://github.com/Mister-EF/Organizador-de-Arquivos-Automatizado.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p7-title">File Organizer</h3><p data-i18n="p7-desc">Automated system directory utility.</p></div>
+                        <div class="card-footer"><span>Python</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="JavaScript HTML-CSS" data-full-img="assets/Rastreador interativo orçamento.png" data-full-desc="p8-full-desc" data-repo="https://github.com/Mister-EF/Rastreador-de-Or-amento-Interativo.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p8-title">Budget Tracker</h3><p data-i18n="p8-desc">Personal finance tool.</p></div>
+                        <div class="card-footer"><span>JS/HTML-CSS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="JavaScript HTML-CSS" data-full-img="assets/Timer Pomodoro.png" data-full-desc="p9-full-desc" data-repo="https://github.com/Mister-EF/Temporizador-de-Produtividade-Pomodoro.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p9-title">Pomodoro Timer</h3><p data-i18n="p9-desc">Sleek productivity focus timer.</p></div>
+                        <div class="card-footer"><span>JS/HTML-CSS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" data-stack="Python HTML-CSS" data-full-img="assets/Blog Markdown.png" data-full-desc="p10-full-desc" data-repo="https://github.com/Mister-EF/Blog-Pessoal-em-Markdown.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p10-title">Markdown Blog</h3><p data-i18n="p10-desc">Renders .md files into web pages.</p></div>
+                        <div class="card-footer"><span>Python/HTML/CSS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" id="proj-11" data-stack="Python HTML-CSS" data-full-img="assets/Clima.png" data-full-desc="p11-full-desc" data-repo="https://github.com/Mister-EF/Dashboard-de-Clima-em-Tempo-Real.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p11-title">Weather Dashboard</h3><p data-i18n="p11-desc">Live geographic weather updates.</p></div>
+                        <div class="card-footer"><span>Python/HTML/CSS</span><span class="arrow">→</span></div>
+                    </div>
+                    <div class="project-card" id="proj-12" data-stack="Python HTML-CSS" data-full-img="assets/Kanban.png" data-full-desc="p12-full-desc" data-repo="https://github.com/Mister-EF/Quadro-Kanban-de-Gerenciamento-de-Tarefas.git">
+                        <div class="card-top"><span class="year">2026</span><h3 data-i18n="p12-title">Kanban Board</h3><p data-i18n="p12-desc">Task management productivity board.</p></div>
+                        <div class="card-footer"><span>Python/HTML/CSS</span><span class="arrow">→</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section-divider"></div>
+        </section>
+
+        <!-- Footer -->
         <footer class="footer">
-            <div class="footer-divider"></div>
             <div class="footer-content">
                 <div class="footer-text">
                     <h2 data-i18n="footer-head">Let's build something together!</h2>
                     <p data-i18n="footer-sub">Currently looking for my first big opportunity in the industry.</p>
                     <a href="mailto:ichgkursk1@gmail.com" class="email-link">ichgkursk1@gmail.com</a>
                 </div>
-                
-                <div class="contact-links">
-                    <a href="https://github.com/Mister-EF" class="contact-image" aria-label="Visit my GitHub"><img src="https://cdn-icons-png.flaticon.com/512/889/889192.png" alt="" aria-hidden="true"></a>
-                    <a href="https://www.linkedin.com/in/eric-fabiano" class="contact-image" aria-label="Visit my LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/2496/2496097.png" alt="" aria-hidden="true"></a>
-                </div>
-
-                <div class="qr-section">
-                    <div class="qr-box">
-                        <img src="assets/phone_qr.png" alt="QR Code" width="122" height="126">
+                <div class="footer-right">
+                    <div class="contact-links">
+                        <a href="https://github.com/Mister-EF" class="contact-image"><img src="https://cdn-icons-png.flaticon.com/512/889/889192.png" alt="GitHub"></a>
+                        <a href="https://www.linkedin.com/in/eric-fabiano" class="contact-image"><img src="https://cdn-icons-png.flaticon.com/512/2496/2496097.png" alt="LinkedIn"></a>
                     </div>
+                    <div class="qr-section">
+                        <div class="qr-box"><img src="assets/phone_qr.png" alt="QR Code" width="100" height="100"></div>
                         <p class="qr-label" data-i18n="qr-text">Scan for contact</p>
+                    </div>
                 </div>
             </div>
         </footer>
     </main>
 
-    <!-- Project Expansion Modal -->
-    <div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <!-- Modal -->
+    <div id="project-modal" class="modal">
         <div class="modal-content">
-            <button class="close-modal" aria-label="Close modal">&times;</button>
+            <button class="close-modal">&times;</button>
             <img id="modal-img" src="" alt="Project Preview">
             <h2 id="modal-title"></h2>
-            <p id="modal-desc" style="margin: 1.5rem 0; line-height: 1.6;"></p>
+            <p id="modal-desc"></p>
             <a href="#" id="modal-link" target="_blank" class="view-repo-btn" data-i18n="view-repo">View Repository</a>
         </div>
     </div>
 
-    <!-- Floating Button -->
     <a href="assets/Eric fabiano Pelegrini Freitas.pdf" target="_blank" class="floating-btn">
-        <span class="pulse"></span>
-        <span data-i18n="help-btn">Want to help me grow?</span>
+        <span class="pulse"></span><span data-i18n="help-btn">Want to help me grow?</span>
     </a>
 
     <script src="script.js"></script>
