@@ -15,25 +15,12 @@ body.dark-theme {
     --text: #f5f5f7;
     --text-light: #a1a1a6;
     --accent: #ff4d4d;
-    --border: #2c2c2e;
+    --border: #2c2c2e; 
 }
 
-#matrix-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Places it behind all content */
-    pointer-events: none; /* Allows you to click through the rain to buttons */
-    opacity: 0.15; /* Keeps it subtle so text remains readable */
-}
+#matrix-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; pointer-events: none; opacity: 0.15; }
 
-/* Ensure main content has a clear stack order */
-main, nav, footer {
-    position: relative;
-    z-index: 1;
-}
+main, nav, footer { position: relative; z-index: 1; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background-color: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, "Inter", sans-serif; line-height: 1.5; transition: background 0.4s, color 0.4s; }
@@ -52,14 +39,12 @@ body { background-color: var(--bg); color: var(--text); font-family: -apple-syst
 
 /* Section Toggles & Dividers */
 .section-block, .about-section { margin-bottom: 2rem; margin-top: 2rem; padding-bottom: 2rem; position: relative; }
-
 .section-divider { height: 1px; background: var(--border); width: 100%; position: relative; margin-top: 2rem; }
 .section-divider::after { content: ''; position: absolute; left: 0; top: -1px; width: 60px; height: 3px; background: var(--accent); transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1); }
 
 /* Animation trigger for both section types */
 .section-block:hover .section-divider::after,
 .about-section:hover .section-divider::after { width: 100%; }
-
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .toggle-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 
@@ -89,9 +74,9 @@ body { background-color: var(--bg); color: var(--text); font-family: -apple-syst
 .slide { min-width: 100%; display: flex; align-items: center; gap: 2rem; padding: 2rem; }
 .slide img { width: 50%; height: 100%; object-fit: cover; border-radius: 16px; }
 .slide-content { flex: 1; }
-.slideshow-nav { position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; }
-.slide-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; }
-.slide-dot.active { background: var(--accent); width: 24px; border-radius: 10px; transition: all 0.3s; }
+.slideshow-nav { position: absolute; bottom: 0.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem; }
+.slide-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); border: none; cursor: pointer; margin-top: 2.5rem; }
+.slide-dot.active { background: var(--accent); width: 24px; border-radius: 10px; transition: all 0.3s; margin-top: 2.5rem; }
 .slide-link { text-decoration: none; color: inherit; display: flex; align-items: center; gap: 2rem; width: 100%; height: 100%; transition: background 0.3s ease;}
 .slide:hover { background-color: rgba(0, 0, 0, 0.02); }
 body.dark-theme .slide:hover { background-color: rgba(255, 255, 255, 0.02); }
@@ -120,7 +105,8 @@ h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; margin: 1rem 0; }
 .project-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s; cursor: pointer; }
 .project-card:hover { transform: translateY(-8px); border-color: var(--accent); }
 .project-card.hidden { display: none; }
-.view-repo-btn { display: inline-block; background: var(--accent); color: white; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: bold; }
+.view-repo-btn { display: inline-block; background: var(--accent); color: white; padding: 0.8rem 1.8rem; border-radius: 50px; text-decoration: none; font-weight: bold; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); will-change: transform; backface-visibility: hidden; }
+.view-repo-btn:hover{ transform: scale(1.2) translateY(-2px) }
 .card-footer { margin-top: 2rem; display: flex; justify-content: space-between; font-weight: 800; color: var(--accent); font-size: 0.85rem; }
 
 /* Footer */
@@ -139,10 +125,7 @@ h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; margin: 1rem 0; }
 .modal-content { background: var(--card-bg); padding: 2.5rem; border-radius: 32px; width: 90%; max-width: 600px; position: relative; }
 .close-modal { position: absolute; top: 1.5rem; right: 1.5rem; background: none; border: none; font-size: 2rem; color: var(--text-light); cursor: pointer; }
 #modal-img { width: 100%; height: 250px; object-fit: cover; border-radius: 20px; margin-bottom: 1.5rem; }
-#modal-desc {
-    margin-bottom: 1.5rem !important; /* Adjust this number to increase/decrease the gap */
-    display: block; /* Ensures the margin works correctly */
-}
+#modal-desc { margin-bottom: 1.5rem !important; display: block; }
 
 /* Floating Button */
 .floating-btn { position: fixed; bottom: 2rem; right: 2rem; background: var(--text); color: var(--bg); padding: 1rem 1.6rem; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
