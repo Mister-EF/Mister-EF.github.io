@@ -220,15 +220,15 @@ function drawMatrix() {
     ctx.fillStyle = isDark ? 'rgba(10, 10, 12, 0.1)' : 'rgba(245, 245, 247, 0.1)';
     ctx.fillRect(0, 0, width, height);
 
-    // Set the character color based on theme accent
-    ctx.fillStyle = isDark ? '#ff4d4d' : '#0066cc';
+
+    ctx.fillStyle = isDark ? 'rgba(255, 77, 77, 1)' : 'rgba(0, 102, 204, 1)';
     ctx.font = fontSize + 'px monospace';
 
     for (let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        // Reset drop to top randomly after it crosses the screen
+        
         if (drops[i] * fontSize > height && Math.random() > 0.975) {
             drops[i] = 0;
         }

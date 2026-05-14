@@ -48,11 +48,11 @@ body { background-color: var(--bg); color: var(--text); font-family: -apple-syst
 .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
 .toggle-btn { background: var(--card-bg); border: 1px solid var(--border); color: var(--text); width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-weight: bold; }
 
-/* Collapsed logic - forces hide even for grids */
+/* Collapsed logic */
 .section-block.collapsed .section-content { display: none !important; }
 
 /* Fixed Content logic */
-.section-content { display: block; } /* Now just a wrapper */
+.section-content { display: block; }
 
 /* About Me Marquee */
 .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
