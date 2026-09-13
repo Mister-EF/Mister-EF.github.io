@@ -1,5 +1,10 @@
 const translations = {
     'en': {
+        'status-badge': 'Available for opportunities',
+        'status-live': 'Live Demo',
+        'status-repo': 'Repository',
+        'card-explore': 'Explore Project',
+        'filter-all': 'all',
         'about-title': 'About Me',
         'about-description': 'Hello! I\'m Eric Fabiano. I am a passionate Junior Full-Stack Developer focused on Python and modern web technologies. I love solving complex problems and turning logic into beautiful, functional interfaces.',
         'recent-title': 'Recently Posted',
@@ -11,47 +16,58 @@ const translations = {
         's1': 'Problem Solving', 's2': 'Adaptability', 's3': 'Teamwork', 's4': 'Communication',
         'intro-label': 'Junior Full-Stack Developer',
         'hero-title': 'Crafting logic with Python, building the web with heart.',
-        'work-label': 'Current Projects',
+        'work-label': 'Projects',
         'p2-title': 'NoSQL Manager',
         'p2-desc': 'A MongoDB-driven dashboard for dynamic content scaling.',
         'p2-full-desc': 'Comprehensive dashboard built with JS, HTML-CSS for the front-end and MongoDB + Python in the back-end to manage non-relational data.',
-        'p3-title' : 'Basic HTML-CSS-JavaScript game',
-        'p3-desc' : 'A simple Mario game in the same style as Flap Bird using the Front End\'s Holy Trinity.',
+        'p3-title' : 'Mario Game',
+        'p3-desc' : 'A simple Mario game in HTML-CSS-JS.',
         'p3-full-desc' : 'A Mario-themed side-scroller utilizing Flappy Bird mechanics, built with the frontend \'Holy Trinity\' (HTML, CSS, and JavaScript).',
-        'p4-title' : 'Glassmorphism Dashboard UI',
-        'p4-desc' : 'A high-end, modern dashboard component featuring the trendy \'rosted glass\' aesthetic.',
+        'p4-title' : 'Glassmorphism UI',
+        'p4-desc' : 'Modern frosted glass dashboard component.',
         'p4-full-desc' : 'A sophisticated UI component utilizing advanced CSS techniques like backdrop-filter and linear gradients to create a glassmorphism effect, with JavaScript used for theme toggling and sidebar animations.',
         'p5-title' : 'Virtual Drum Kit',
-        'p5-desc' : 'A musical interaction tool that turns your keyboard into a drum set.',
+        'p5-desc' : 'Turns keyboard into a drum set.',
         'p5-full-desc' : 'A JavaScript-focused project that maps keyboard events to high-quality audio samples, featuring real-time visual feedback and CSS animations triggered by DOM manipulation.',
-        'p6-title' : 'Password Security Analyzer',
-        'p6-desc' : 'A security tool that evaluates password strength and checks against known vulnerabilities.',
+        'p6-title' : 'Security Analyzer',
+        'p6-desc' : 'Evaluates password strength.',
         'p6-full-desc' : 'A hybrid application using JavaScript for instant frontend visual feedback and a Python backend to cross-reference inputs against databases of common or compromised passwords.',
-        'p7-title' : 'Automated File Organizer',
-        'p7-desc' : 'A Python-based system utility to keep your local directories clean and organized.',
-        'p7-full-desc' : 'A backend script using Python\'s \`os` and \'shutil\` libraries to automatically categorize and move files into specific folders based on their extensions and metadata.',
-        'p8-title' : 'Interactive Budget Tracker',
-        'p8-desc' : 'A personal finance tool for tracking income and expenses in real-time.',
+        'p7-title' : 'File Organizer',
+        'p7-desc' : 'Automated system directory utility.',
+        'p7-full-desc' : 'A backend script using Python\'s `os` and `shutil` libraries to automatically categorize and move files into specific folders based on their extensions and metadata.',
+        'p8-title' : 'Budget Tracker',
+        'p8-desc' : 'Personal finance tool.',
         'p8-full-desc' : 'A functional web application that calculates balances dynamically using JavaScript and utilizes `localStorage` to keep user financial data persistent across browser sessions.',
-        'p9-title' : 'Pomodoro Productivity Timer',
-        'p9-desc' : 'A sleek focus timer designed to help users manage their work intervals effectively.',
-        'p9-full-desc' : 'A minimalist productivity app featuring a circular progress ring built with CSS/SVG and a countdown engine powered by JavaScript\'s \'setInterval\' function.',
-        'p10-title' : 'Personal Markdown Blog',
-        'p10-desc' : 'A developer-centric blog engine that renders Markdown files into styled web pages.',
-        'p10-full-desc' : 'A full-stack bridge using a Python backend (Flask) to process local \'.md\' files and serve them through styled HTML/CSS templates for a seamless reading experience.',
-        'p11-title' : 'Real-Time Weather Dashboard',
-        'p11-desc' : 'A dynamic weather app that provides live updates based on geographic data.',
+        'p9-title' : 'Pomodoro Timer',
+        'p9-desc' : 'Sleek productivity focus timer.',
+        'p9-full-desc' : 'A minimalist productivity app featuring a circular progress ring built with CSS/SVG and a countdown engine powered by JavaScript\'s `setInterval` function.',
+        'p10-title' : 'Markdown Blog',
+        'p10-desc' : 'Renders .md files into web pages.',
+        'p10-full-desc' : 'A full-stack bridge using a Python backend (Flask) to process local `.md` files and serve them through styled HTML/CSS templates for a seamless reading experience.',
+        'p11-title' : 'Weather Dashboard',
+        'p11-desc' : 'Live geographic weather updates.',
         'p11-full-desc' : 'An integrated project using a Python backend to securely fetch data from external APIs and a JavaScript frontend to render dynamic weather icons and temperature charts.',
-        'p12-title' : 'Task Management Kanban Board',
-        'p12-desc' : 'A productivity board with draggable tasks to manage workflow stages.',
+        'p12-title' : 'Kanban Board',
+        'p12-desc' : 'Task management productivity board.',
         'p12-full-desc' : 'A comprehensive full-stack application featuring HTML/CSS layout, JavaScript Drag-and-Drop API for task movement, and a Python-based database to store task states.',
-        'help-btn': 'Help me grow?',
-        'footer-head': "Let's build together!",
-        'footer-sub': 'Looking for my first opportunity.',
+        'p13-title' : 'Parish Management System',
+        'p13-desc' : 'A Web System to manage Parish Students and Classes.',
+        'p13-full-desc' : 'A web-based parish management platform built with Python, Flask, SQLAlchemy, and MySQL, featuring a responsive HTML/CSS/JS frontend to handle catechism enrollments, class allocations, and messaging across administrative, teacher, and parent roles.',
+        'p14-title' : 'Mock Dev Company CoByte',
+        'p14-desc' : 'A Web System to manage a mock developer company called CoByte.',
+        'p14-full-desc' : 'A collaborative web platform built with Python, Flask, Flask-SQLAlchemy, and PostgreSQL/MySQL, designed to centralize and automate software project documentation, manage functional and non-functional requirements, and facilitate multi-role interactions, feedback, and audit logging across Administrator, Employee, and Client accounts for a mock dev company.',
+        'help-btn': 'Want to help me grow?',
+        'footer-head': "Let's build something together!",
+        'footer-sub': 'Currently looking for my first big opportunity in the industry.',
         'qr-text': 'Scan for contact',
         'view-repo': 'View Repository'
     },
     'pt': {
+        'status-badge': 'Disponível para oportunidades',
+        'status-live': 'Demo ao Vivo',
+        'status-repo': 'Repositório',
+        'card-explore': 'Explorar Projeto',
+        'filter-all': 'todos',
         'about-title': 'Sobre Mim',
         'about-description': 'Olá! Sou Eric Fabiano, um desenvolvedor Junior Full-Stack focado em Python e tecnologias modernas. Amo resolver problemas e transformar lógica em interfaces funcionais.',
         'recent-title': 'Postado Recentemente',
@@ -63,43 +79,49 @@ const translations = {
         's1': 'Resolução de Problemas', 's2': 'Adaptabilidade', 's3': 'Trabalho em Equipe', 's4': 'Comunicação',
         'intro-label': 'Desenvolvedor Full-Stack Júnior',
         'hero-title': 'Criando lógica com Python, construindo a web com propósito.',
-        'work-label': 'Projetos atuais',
+        'work-label': 'Projetos',
         'p2-title': 'Gestor NoSQL',
         'p2-desc': 'Um dashboard MongoDB para escalonamento de conteúdo dinâmico.',
         'p2-full-desc': 'Dashboard construído com JavaScript, HTML-CSS no front-end e MongoDB + Python (back-end) para dados não relacionais.',
-        'p3-title' : 'Jogo básico com HTML-CSS-JavaScript',
-        'p3-desc' : 'Um jogo básico do Mario no mesmo estilo de Flap Bird feito com a Santíssima Trindade do Front End.',
+        'p3-title' : 'Jogo Mario',
+        'p3-desc' : 'Um jogo simples do Mario em HTML-CSS-JS.',
         'p3-full-desc' : 'Side-scroller temático do Mario com mecânicas de Flappy Bird, desenvolvido com a \'Santíssima Trindade\' do Front-end: HTML, CSS e JavaScript.',
-        'p4-title' : 'Interface de Dashboard em Glassmorphism',
-        'p4-desc' : 'Um componente de dashboard moderno e sofisticado com a estética de "vidro embaçado".',
+        'p4-title' : 'Interface Glassmorphism UI',
+        'p4-desc' : 'Componente de dashboard moderno em vidro fosco.',
         'p4-full-desc' : 'Um componente de UI sofisticado que utiliza técnicas avançadas de CSS, como backdrop-filter e gradientes lineares, para criar o efeito glassmorphism, com JavaScript para alternância de temas e animações de barra lateral.',
         'p5-title' : 'Kit de Bateria Virtual',
-        'p5-desc' : 'Uma ferramenta de interação musical que transforma seu teclado em um conjunto de bateria.',
+        'p5-desc' : 'Transforma seu teclado em um conjunto de bateria.',
         'p5-full-desc' : 'Um projeto focado em JavaScript que mapeia eventos de teclado para amostras de áudio de alta qualidade, apresentando feedback visual em tempo real e animações CSS disparadas via manipulação do DOM.',
-        'p6-title' : 'Analisador de Segurança de Senhas',
-        'p6-desc' : 'Uma ferramenta de segurança que avalia a força de senhas e verifica vulnerabilidades conhecidas.',
+        'p6-title' : 'Analisador de Segurança',
+        'p6-desc' : 'Avalia a força de senhas.',
         'p6-full-desc' : 'Uma aplicação híbrida que utiliza JavaScript para feedback visual instantâneo no frontend e um backend em Python para cruzar os dados com bancos de dados de senhas comuns ou comprometidas.',
-        'p7-title' : 'Organizador de Arquivos Automatizado',
-        'p7-desc' : 'Um utilitário de sistema em Python para manter seus diretórios locais limpos e organizados.',
+        'p7-title' : 'Organizador de Arquivos',
+        'p7-desc' : 'Utilitário de sistema em Python.',
         'p7-full-desc' : 'Um script de backend que utiliza as bibliotecas `os` e `shutil` do Python para categorizar e mover arquivos automaticamente para pastas específicas com base em suas extensões e metadados.',
-        'p8-title' : 'Rastreador de Orçamento Interativo',
-        'p8-desc' : 'Uma ferramenta de finanças pessoais para monitorar receitas e despesas em tempo real.',
+        'p8-title' : 'Rastreador de Orçamento',
+        'p8-desc' : 'Ferramenta de finanças pessoais.',
         'p8-full-desc' : 'Uma aplicação web funcional que calcula saldos dinamicamente usando JavaScript e utiliza o `localStorage` para manter os dados financeiros do usuário persistentes entre as sessões do navegador.',
-        'p9-title' : 'Temporizador de Produtividade Pomodoro',
-        'p9-desc' : 'Um timer de foco elegante projetado para ajudar os usuários a gerenciar seus intervalos de trabalho de forma eficaz.',
-        'p9-full-desc' : 'Um aplicativo de produtividade minimalista com um anel de progresso circular construído com CSS/SVG e um motor de contagem regressiva movido pela função \'setInterval\' do JavaScript.',
-        'p10-title' : 'Blog Pessoal em Markdown',
-        'p10-desc' : 'Um motor de blog focado em desenvolvedores que renderiza arquivos Markdown em páginas web estilizadas.',
-        'p10-full-desc' : 'Uma ponte full-stack que utiliza um backend em Python (Flask) para processar arquivos \'.md\' locais e servi-los por meio de templates HTML/CSS estilizados para uma experiência de leitura fluida.',
-        'p11-title' : 'Dashboard de Clima em Tempo Real',
-        'p11-desc' : 'Um app de clima dinâmico que fornece atualizações ao vivo com base em dados geográficos.',
+        'p9-title' : 'Temporizador Pomodoro',
+        'p9-desc' : 'Timer de foco elegante.',
+        'p9-full-desc' : 'Um aplicativo de produtividade minimalista com um anel de progresso circular construído com CSS/SVG e um motor de contagem regressiva movido pela função `setInterval` do JavaScript.',
+        'p10-title' : 'Blog Markdown',
+        'p10-desc' : 'Renderiza arquivos .md em páginas web.',
+        'p10-full-desc' : 'Uma ponte full-stack que utiliza um backend em Python (Flask) para processar arquivos `.md` locais e servi-los por meio de templates HTML/CSS estilizados para uma experiência de leitura fluida.',
+        'p11-title' : 'Dashboard de Clima',
+        'p11-desc' : 'Atualizações climáticas ao vivo.',
         'p11-full-desc' : 'Um projeto integrado que utiliza um backend em Python para buscar dados de APIs externas com segurança e um frontend em JavaScript para renderizar ícones climáticos dinâmicos e gráficos de temperatura.',
-        'p12-title' : 'Quadro Kanban de Gerenciamento de Tarefas',
-        'p12-desc' : 'Um quadro de produtividade com tarefas arrastáveis para gerenciar etapas de fluxo de trabalho.',
+        'p12-title' : 'Quadro Kanban',
+        'p12-desc' : 'Quadro de produtividade e gerenciamento de tarefas.',
         'p12-full-desc' : 'Uma aplicação full-stack abrangente com layout em HTML/CSS, API de Drag-and-Drop do JavaScript para movimentação de tarefas e um banco de dados em Python para salvar os estados das tarefas.',
+        'p13-title' : 'Sistema de Gestão Paroquial',
+        'p13-desc' : 'Um sistema web para gerenciar alunos e turmas da paróquia.',
+        'p13-full-desc' : 'Uma plataforma web de gestão paroquial desenvolvida com Python, Flask, SQLAlchemy e MySQL, com interface responsiva em HTML/CSS/JS para gerenciar matrículas de catequese, alocação de turmas e mensagens entre administradores, professores e responsáveis.',
+        'p14-title' : 'Empresa Fictícia de Dev CoByte',
+        'p14-desc' : 'Um sistema web para gerenciar uma empresa fictícia de desenvolvimento chamada CoByte.',
+        'p14-full-desc' : 'Uma plataforma web colaborativa desenvolvida com Python, Flask, Flask-SQLAlchemy e PostgreSQL/MySQL, projetada para centralizar e automatizar a documentação de projetos de software, gerenciar requisitos funcionais e não funcionais e facilitar interações, feedbacks e registros de auditoria entre contas de Administrador, Colaborador e Cliente.',
         'help-btn': 'Me ajude a crescer?',
-        'footer-head': 'Vamos construir juntos!',
-        'footer-sub': 'Buscando minha primeira oportunidade.',
+        'footer-head': 'Vamos construir algo juntos!',
+        'footer-sub': 'Buscando minha primeira grande oportunidade no mercado.',
         'qr-text': 'Escaneie para contato',
         'view-repo': 'Ver Repositório'
     }
@@ -143,9 +165,10 @@ const dots = document.querySelectorAll('.slide-dot');
 let currentSlide = 0;
 
 function updateSlideshow(index) {
+    if (!track) return;
     track.style.transform = `translateX(-${index * 100}%)`;
     dots.forEach(d => d.classList.remove('active'));
-    dots[index].classList.add('active');
+    if (dots[index]) dots[index].classList.add('active');
     currentSlide = index;
 }
 
@@ -154,8 +177,10 @@ dots.forEach(dot => {
 });
 
 setInterval(() => {
-    let next = (currentSlide + 1) % dots.length;
-    updateSlideshow(next);
+    if (dots.length > 0) {
+        let next = (currentSlide + 1) % dots.length;
+        updateSlideshow(next);
+    }
 }, 5000);
 
 // --- Filtering Logic ---
@@ -168,31 +193,72 @@ filterPills.forEach(pill => {
         const filter = pill.getAttribute('data-filter');
         projectCards.forEach(card => {
             const stacks = card.getAttribute('data-stack');
-            if (filter === 'all' || stacks.includes(filter)) card.classList.remove('hidden');
-            else card.classList.add('hidden');
+            if (filter === 'all' || (stacks && stacks.includes(filter))) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
         });
+    });
+});
+
+// --- Radial Spotlight Glow on Mousemove ---
+projectCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
     });
 });
 
 // --- Modal Logic ---
 const modal = document.getElementById('project-modal');
 const closeModalBtn = document.querySelector('.close-modal');
+
 function openModal(card) {
     const lang = localStorage.getItem('portfolio-lang') || 'en';
-    const titleKey = card.querySelector('[data-i18n]').getAttribute('data-i18n');
+    const titleEl = card.querySelector('h3[data-i18n]');
+    const titleKey = titleEl ? titleEl.getAttribute('data-i18n') : '';
     const descKey = card.getAttribute('data-full-desc');
     const imgUrl = card.getAttribute('data-full-img');
     const repoUrl = card.getAttribute('data-repo');
-    document.getElementById('modal-title').textContent = translations[lang][titleKey];
-    document.getElementById('modal-desc').textContent = translations[lang][descKey];
-    document.getElementById('modal-img').src = imgUrl;
-    document.getElementById('modal-link').href = repoUrl;
-    modal.style.display = 'flex';
-}
-projectCards.forEach(card => card.addEventListener('click', () => openModal(card)));
-closeModalBtn.addEventListener('click', () => modal.style.display = 'none');
-window.addEventListener('click', (e) => { if (e.target == modal) modal.style.display = 'none'; });
+    
+    if (titleKey && translations[lang][titleKey]) {
+        document.getElementById('modal-title').textContent = translations[lang][titleKey];
+    }
+    if (descKey && translations[lang][descKey]) {
+        document.getElementById('modal-desc').textContent = translations[lang][descKey];
+    }
+    document.getElementById('modal-img').src = imgUrl || '';
+    document.getElementById('modal-link').href = repoUrl || '#';
+    
+    if (card.id) {
+        history.replaceState(null, null, `#${card.id}`);
+    }
 
+    modal.classList.add('active');
+}
+
+function closeModal() {
+    modal.classList.remove('active');
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname + window.location.search);
+    }
+}
+
+projectCards.forEach(card => card.addEventListener('click', () => openModal(card)));
+
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', closeModal);
+}
+
+window.addEventListener('click', (e) => { 
+    if (e.target == modal) closeModal(); 
+});
+
+// --- Matrix Rain Background Canvas (PRESERVED) ---
 const canvas = document.getElementById('matrix-canvas');
 const ctx = canvas.getContext('2d');
 
@@ -214,12 +280,9 @@ function initMatrix() {
 }
 
 function drawMatrix() {
-    // Semi-transparent background to create the trailing effect
-    // We use the theme's background color with low opacity
     const isDark = document.body.classList.contains('dark-theme');
     ctx.fillStyle = isDark ? 'rgba(10, 10, 12, 0.1)' : 'rgba(245, 245, 247, 0.1)';
     ctx.fillRect(0, 0, width, height);
-
 
     ctx.fillStyle = isDark ? 'rgba(255, 77, 77, 1)' : 'rgba(0, 102, 204, 1)';
     ctx.font = fontSize + 'px monospace';
@@ -228,7 +291,6 @@ function drawMatrix() {
         const text = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
 
-        
         if (drops[i] * fontSize > height && Math.random() > 0.975) {
             drops[i] = 0;
         }
@@ -238,13 +300,12 @@ function drawMatrix() {
 
 document.querySelectorAll('.slide-link').forEach(link => {
     link.addEventListener('click', (e) => {
-        const projectsSection = document.getElementById('projects-section');
+        e.preventDefault();
+        const targetId = link.getAttribute('href').replace('#', '');
+        const targetCard = document.getElementById(targetId);
         
-        if (projectsSection.classList.contains('collapsed')) {
-            projectsSection.classList.remove('collapsed');
-            
-            const btn = projectsSection.querySelector('.toggle-btn');
-            if (btn) btn.textContent = '−';
+        if (targetCard) {
+            openModal(targetCard);
         }
     });
 });
