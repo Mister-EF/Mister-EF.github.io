@@ -1,6 +1,6 @@
 # ERIC-FABIANO.DEV — Portfolio
 
-The personal portfolio of **Eric Fabiano** — a Junior Full-Stack Developer crafting logic with Python and building the web with purpose. A curated showcase of 10 projects spanning frontend, backend, databases, and everything in between.
+The personal portfolio of **Eric Fabiano** — a Junior Full-Stack Developer crafting logic with Python and building the web with purpose. A curated showcase of 14 projects spanning frontend, backend, databases, and everything in between.
 
 ---
 
@@ -8,9 +8,9 @@ The personal portfolio of **Eric Fabiano** — a Junior Full-Stack Developer cra
 
 | Layer | Technologies |
 |-------|-------------|
-| Frontend | HTML5, CSS3, JavaScript |
-| Backend | Python, Flask |
-| Databases | MySQL, MongoDB |
+| Frontend | HTML5, CSS3, JavaScript, Vue.js |
+| Backend | Python, Flask, Java |
+| Databases | MySQL, MongoDB, PostgreSQL |
 | Tooling | DOM API, localStorage, external REST APIs |
 
 ---
@@ -42,6 +42,10 @@ The personal portfolio of **Eric Fabiano** — a Junior Full-Stack Developer cra
 | 8 | Personal Markdown Blog | Python, Flask, HTML/CSS |
 | 9 | Real-Time Weather Dashboard | Python, JavaScript, API |
 | 10 | Task Management Kanban Board | Python, JavaScript, HTML/CSS |
+| 11 | Weather Dashboard | Python, HTML/CSS |
+| 12 | Kanban Board | Python, HTML/CSS |
+| 13 | Parish Management System | Python, JavaScript, HTML/CSS, Flask, MySQL |
+| 14 | Mock Dev Company CoByte | Python, JavaScript, HTML/CSS, Flask, MySQL |
 
 ---
 
