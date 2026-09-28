@@ -45,7 +45,7 @@ The personal portfolio of **Eric Fabiano** — a Junior Full-Stack Developer cra
 | 11 | Weather Dashboard | Python, HTML/CSS |
 | 12 | Kanban Board | Python, HTML/CSS |
 | 13 | Parish Management System | Python, JavaScript, HTML/CSS, Flask, MySQL |
-| 14 | Mock Dev Company CoByte | Python, JavaScript, HTML/CSS, Flask, MySQL |
+| 14 | Mock Dev Company CoByte | Python, JavaScript, HTML/CSS, Flask, PostgreSQL |
 
 ---
 
