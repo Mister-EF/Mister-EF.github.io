@@ -60,7 +60,8 @@ const translations = {
         'footer-head': "Let's build something together!",
         'footer-sub': 'Currently looking for my first big opportunity in the industry.',
         'qr-text': 'Scan for contact',
-        'view-repo': 'View Repository'
+        'view-repo': 'View Repository',
+        'slide-link' : 'Access'
     },
     'pt': {
         'status-badge': 'Disponível para oportunidades',
@@ -123,7 +124,8 @@ const translations = {
         'footer-head': 'Vamos construir algo juntos!',
         'footer-sub': 'Buscando minha primeira grande oportunidade no mercado.',
         'qr-text': 'Escaneie para contato',
-        'view-repo': 'Ver Repositório'
+        'view-repo': 'Ver Repositório',
+        'slide-link' : 'Acessar'
     }
 };
 
